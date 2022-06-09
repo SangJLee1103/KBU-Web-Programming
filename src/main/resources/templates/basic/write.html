@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2 th:text="#{page.write}">📝작성하기</h2>
+    </div>
+
+    <div>
+        <h5 class="mt-3">
+            한국성서대학교 컴퓨터 소프트웨어 학과 공지<br><br>
+        </h5>
+        <ul>
+            <li>
+                한국성서대학교 컴퓨터 소프트웨어 학과 공지 작성 페이지입니다. 작성 시 욕설, 비방 글 등을 일체 금지하며 관리자에 의해 삭제될 수 있습니다.
+            </li>
+        </ul>
+    </div>
+    <br>
+    <div>
+        <h5 class="mt-3">
+            청원 작성 요령 안내<br><br>
+        </h5>
+        <ul>
+            <li>
+                각 학년의 과대 및 조교님은 학과 공지 내용을 올려주세요!
+            </li>
+            <li>
+                공지 작성 시 욕설, 비방, 등의 글은 관리자에 의해 삭제 될 수 있습니다.
+            </li>
+            <li>
+                작성 페이지 하단에 게시글의 내용을 수정할 수 있는 버튼이 있으니 이 점 참고하여 수정하시기 바랍니다.
+            </li>
+        </ul>
+    </div>
+    <hr color="black"><br>
+
+    <form action="notice.html" th:action th:object="${notice}" method="post">
+        <div>
+            <label for="subject" th:text="#{label.write.subject}">제목</label>
+            <input type="text" id="subject" th:field="*{subject}"
+                   th:errorclass="field-error" class="form-control" placeholder="제목을 입력해주세요.">
+        </div>
+        <div class="field-error" th:errors="*{subject}">
+            제목 오류
+        </div>
+        <div>
+            <label for="grade" th:text="#{label.write.grade}">학년</label>
+            <select id="grade" name="grade" th:errorclass="field-error" class="form-control">
+                <option value="" selected>학년을 선택해주세요.</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>전학년</option>
+            </select>
+        </div>
+        <div class="field-error" th:errors="*{grade}">
+            학년 오류
+        </div>
+        <div>
+            <label for="content" th:text="#{label.write.content}">내용</label>
+            <textarea type="text" id="content" th:field="*{content}"
+                      th:errorclass="field-error" class="form-control" rows="20" cols="40"></textarea>
+        </div>
+        <div class="field-error" th:errors="*{content}">
+            내용 오류
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-sm" type="submit" style="background: #1c7430">작성 완료</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-sm" onclick="location.href='items.html'"
+                        th:onclick="|location.href='@{/}'|"
+                        type="button">작성 취소
+                </button>
+            </div>
+        </div>
+    </form>
+</div> <!-- /container -->
+<script>
+    $('.editable').each(function(){
+        this.contentEditable = true;
+    });
+</script>
+</body>
+</html>

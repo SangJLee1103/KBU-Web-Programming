@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/capus.png}"
+          href="../css/campus.png" rel="stylesheet">
+
+
+    <title>Map</title>
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+
+<div class="py-5 text-center"><h2>캠퍼스 약도⚙️</h2></div>
+<hr>
+<div class="py-5 text-center">
+    <img th:src="@{/css/campus.png}" width="600" height="500"
+         alt="map">
+
+    <div class="py-5 text-center">
+        <a href="https://www.bible.ac.kr/ko/intro/campus">홈페이지 연결</a></li>
+    </div>
+</div>
+</body>
+</html>

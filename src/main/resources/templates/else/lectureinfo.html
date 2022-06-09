@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/expand_style.css}"
+          href="../css/expand_style.css" rel="stylesheet">
+    <title>Lecture</title>
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<section class="notice">
+  <div class="page-title">
+        <div class="container">
+            <h3>전공 강의 안내</h3>
+    
+        </div>
+    </div>
+
+    <div id="board-list">
+        <div class="container">
+            <table class="board-table">
+                <thead>
+                <tr>
+                    <th scope="col" class="th-num">학년</th>
+                    <th scope="col" class="th-title">전공</th>
+                    <th scope="col" class="th-date">담당 교수</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <th>
+                        <a th:href="@{lecture/}">
+                          [전공기초] 컴퓨터프로그래밍기초 I</a>
+                    
+                    </th>
+                    <td>김국현</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <th><a href="">
+                        [전공선택] 웹프로그래밍</a>
+                    </th>
+                    <td>현우석</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <th><a href="">
+                        [전공필수] 네트워크와데이터통신</a></th>
+                    <td>임지영</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <th><a href="">
+                        [전공선택] 멀티미디어응용</a></th>
+                    <td>임지영</td>
+                </tr>
+            
+                <tr>
+                    <td>2</td>
+                    <th><a href= "">
+                        [전공선택] 이산수학</a></th>
+                    <td>정해덕</td>
+                </tr>
+                           
+                <tr>
+                    <td>2</td>
+                    <th><a href="">
+                        [전공선택] 공학인과사회</a></th>
+                    <td>현우석</td>
+                </tr>
+            
+                <tr>
+                    <td>3</td>
+                    <th><a href="">
+                        [전공선택] 머신러닝프로그래밍</a></th>
+                    <td>정래성</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <th><a href="">
+                        [전공필수] 소프트웨어공학</a></th>
+                    <td>현우석</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <th><a href="">
+                        [전공필수] 운영체제</a></th>
+                    <td>임지영</td>
+                </tr>
+                
+                <tr>
+                    <td>3</td>
+                    <th><a href="">
+                        [전공선택] 알고리즘</a></th>
+                    <td>정해덕</td>
+                </tr>
+
+               <tr>
+                        <td>3</td>
+                       <th><a href="">
+                        [전공선택] 웹시스템개발Ⅰ</a></th>
+                        <td>김원빈</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <th><a href="">
+                            [전공선택] 인공지능</a></th>
+                        <td>현우석</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <th><a href="">
+                            [전공선택] 자바프로그래밍</a></th>
+                        <td>김원빈</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <th><a href="">
+                            [전공선택] 리눅스시스템</a></th>
+                        <td>정해덕</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <th><a href="">
+                            [전공필수] 종합설계Ⅰ</a></th>
+                        <td>현우석</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <th><a href="">
+                            [전공선택] 창의통합설계</a></th>
+                        <td>정해덕</td>
+
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <th><a href="">
+                            [전공선택] IT창업개론</a></th>
+                        <td>김원빈</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>

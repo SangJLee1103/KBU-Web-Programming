@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+            href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+    </style>
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2 th:text="#{page.main}">🧑🏻‍💻컴소 공지🔔</h2>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary float-right"
+                    onclick="location.href='addForm.html'"
+                    style="background: #1c7430"
+                    th:onclick="|location.href='@{/notice/write}'|"
+                    type="button" th:text="#{button.main}">작성하기</button>
+        </div>
+    </div>
+    <hr class="my-4">
+    <div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th th:text="#{label.main.id}">번호</th>
+                <th th:text="#{label.main.subject}">주제</th>
+                <th th:text="#{label.main.grade}">학년</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="notice : ${notices}">
+                <td th:text="${notice.id}">번호</td>
+                <td><a href="notice.html" th:href="@{/{noticeId} (noticeId=${notice.id})}" th:text="${notice.subject}">제목</a></td>
+                <td th:text="${notice.grade}">학년</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2 th:text="#{page.notice}">✍🏻수정하기</h2>
+    </div>
+
+    <!--  추가  -->
+    <h2 th:if="${param.status}" th:text="'저장 완료'"></h2>
+
+    <div>
+        <label for="noticeId" th:text="#{label.notice.id}">번호</label>
+        <input type="text" id="noticeId" name="noticeId" class="form-control" value="1" th:value="${notice.id}" readonly>
+    </div>
+    <div>
+        <label for="noticeSubject" th:text="#{label.notice.subject}">제목</label>
+        <input type="text" id="noticeSubject" name="noticeSubject" class="form-control" value="상품A" th:value="${notice.subject}" readonly>
+    </div>
+    <div>
+        <label for="noticegrade" th:text="#{label.notice.grade}">학년</label>
+        <input type="text" id="noticegrade" name="noticegrade" class="form-control" value="10000" th:value="${notice.grade}" readonly>
+    </div>
+    <div>
+        <label for="noticeContent" th:text="#{label.notice.content}">내용</label>
+        <textarea id="noticeContent" name="noticeContent" class="form-control" rows="20" cols="40" th:text="${notice.content}" readonly></textarea>
+    </div>
+
+    <hr class="my-4">
+    <div class="row">
+        <div class="col">
+            <button class="w-100 btn btn-primary btn-sm"
+                    onclick="location.href='editForm.html'"
+                    style="background: #1c7430"
+                    th:onclick="|location.href='@{/{noticeId}/edit(noticeId=${notice.id})}'|"
+                    type="button">내용 수정</button>
+        </div>
+        <div class="col">
+            <button class="w-100 btn btn-secondary btn-sm"
+                    onclick="location.href='items.html'"
+                    th:onclick="|location.href='@{/}'|"
+                    type="button">메인으로</button>
+        </div>
+    </div>
+</div> <!-- /container -->
+</body>
+
+</html>

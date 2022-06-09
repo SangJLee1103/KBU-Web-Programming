@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{display: block; margin:auto; }
+    </style>
+
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/calendar.css}"
+          href="../css/calendar.css" rel="stylesheet">
+    <link th:href="@{/css/may.png}"
+          href="../css/may.png" rel="stylesheet">
+    <link th:href="@{/css/june.png}"
+          href="../css/june.png" rel="stylesheet">
+    <link th:href="@{/css/july.png}"
+          href="../css/july.png" rel="stylesheet">
+</head>
+<body>
+    <head th:replace="/layout/navVar.html :: nav"></head>
+    <div class="slider">
+       
+        <div class="slides">
+            <div id="slide-1"><img th:src="@{/css/may.png}" alt=""></div>
+            <div id="slide-2"><img th:src="@{/css/june.png}" alt=""></div>
+            <div id="slide-3"><img th:src="@{/css/july.png}" alt=""></div>
+        </div>
+        
+        <a href="#slide-1">5</a>
+        <a href="#slide-2">6</a>
+        <a href="#slide-3">7</a>
+    </div>   
+</body>
+</html>

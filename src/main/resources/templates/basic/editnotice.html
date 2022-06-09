@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+        .field-error {
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<div class="container">
+    <div class="py-5 text-center">
+        <h2 th:text="#{page.update}">내용수정</h2>
+    </div>
+    <form action="notice.html" th:action th:object="${notice}" method="post">
+        <div>
+            <label for="id" th:text="#{label.notice.id}">번호</label>
+            <input type="text" id="id" th:field="*{id}" class="form-control" readonly>
+        </div>
+        <div>
+            <label for="subject" th:text="#{label.notice.subject}">제목</label>
+            <input type="text" id="subject" th:field="*{subject}"
+                   th:errorclass="field-error" class="form-control">
+        </div>
+        <div class="field-error" th:errors="*{subject}">
+            제목 오류
+        </div>
+        <div>
+            <label for="grade" th:text="#{label.notice.grade}">학년</label>
+            <select id="grade" name="grade"
+                    th:errorclass="field-error" class="form-control">
+                <option selected th:value="${notice.grade}" th:text="${notice.grade}"></option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>전학년</option>
+            </select>
+        </div>
+        <div class="field-error" th:errors="*{grade}">
+            학년 오류
+        </div>
+        <div>
+            <label for="content" th:text="#{label.notice.content}">내용</label>
+            <textarea id="content" th:field="*{content}"
+                      th:errorclass="field-error" class="form-control" rows="20" cols="40"></textarea>
+        </div>
+        <div class="field-error" th:errors="*{content}">
+            내용 오류
+        </div>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col">
+                <button class="w-100 btn btn-primary btn-sm" type="submit" style="background: #002752">수정하기</button>
+            </div>
+            <div class="col">
+                <button class="w-100 btn btn-secondary btn-sm" onclick="location.href='item.html'"
+                        th:onclick="|location.href='@{/{noticeId}(noticeId=${notice.id})}'|"
+                        type="button">수정 취소</button>
+            </div>
+        </div>
+    </form>
+</div> <!-- /container -->
+</body>
+</html>

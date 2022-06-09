@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}"
+          href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <link th:href="@{/else/left.html}"
+          href="left.html" rel="stylesheet">
+    <link th:href="@{/else/right.html}"
+          href="right.html" rel="stylesheet">
+
+
+    <title>Employment</title>
+
+</head>
+<body>
+<head th:replace="/layout/navVar.html :: nav"></head>
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>🕵🏻‍♂️취업정보️🕵🏻</h2>
+    </div>
+</div>
+
+</div>
+<hr class="my-4">
+</div>
+<hr>
+<iframe th:src="@{left.html}" name= "left"
+        width="600" height="700"></iframe>
+<iframe th:src="@{right.html}" name= "right"
+        width="600" height="700"></iframe>
+</body>
+</html>
